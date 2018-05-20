@@ -1,0 +1,12 @@
+version: '2'
+services:
+  nginx:
+    image: nginx:1.13
+    ports:
+      - '445:445'
+    volumes:
+      - ./etc/nginx.conf:/etc/nginx/conf.d/default.conf:ro
+      - /srv/log/nginx:/var/log/nginx
+      - ./certs:/etc/ssl/certs/nginx
+  apache:
+    image: httpd:2.4
